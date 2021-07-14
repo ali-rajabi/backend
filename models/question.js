@@ -13,6 +13,10 @@ const Question = (sequelize, DataTypes) => {
       answer: {
         type: DataTypes.STRING,
       },
+      isActive: {
+        type: DataTypes.BOOLEAN,
+        defaultValue: true,
+      },
       difficulty: {
         type: DataTypes.ENUM,
         values: ["hard", "medium", "easy"],

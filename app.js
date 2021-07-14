@@ -5,6 +5,9 @@ const routes = require("./routes/index");
 const db = require("./models");
 const cors = require("cors");
 
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
 db.sequelize
   .authenticate()
   .then(() => {
@@ -14,7 +17,7 @@ db.sequelize
     console.error("Unable to connect to the database:", err);
   });
 
-var port = process.env.PORT || 8080;
+const port = process.env.PORT || 8080;
 
 app.use("/", cors(), routes);
 

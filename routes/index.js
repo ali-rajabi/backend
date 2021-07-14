@@ -1,12 +1,8 @@
 const express = require("express");
-var router = express.Router();
-const bodyParser = require("body-parser");
+const router = express.Router();
 const adminRouter = require("./admin");
 const db = require("../models/index");
 const Question = db["Question"];
-
-router.use(bodyParser.urlencoded({ extended: true }));
-router.use(bodyParser.json());
 
 router.use((req, res, next) => {
   console.log(`Resource requested: ${req.method} ${req.originalUrl}`);
